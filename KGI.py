@@ -1,7 +1,8 @@
-def check_code(enterprise, serial, test):
-    if len(str(enterprise)) == 4 and len(str(serial)) == 9 and len(str(test)) == 3 :
-        synthetic = str(enterprise)+str(serial)
-        tests = str(test)*4+str(test)[0]
+def KGI(serial):
+    if len(str(serial)) == 10 :
+        enterprise = "362"
+        tests = "3713713713713"
+        synthetic = enterprise+str(serial)
         step1 =[]
         for i in range(len(synthetic)):
             step1.append(str(int(synthetic[i])*int(tests[i])))
@@ -9,8 +10,8 @@ def check_code(enterprise, serial, test):
         for i in range(len(step1)):
             step2 = step2+ int(step1[i][-1])
         step3 = int(str(step2)[-1])
-        result = 10-step3
-        return result
+        result = str(10-step3)[-1]
+        return enterprise+str(serial)+result
     else :
         print("input error")
         return None
